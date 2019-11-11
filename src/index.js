@@ -26,7 +26,7 @@ attachRouters();
 startEmailScheduler();
 
 app.get('/', function (req, res) {
-  res.send('The Reddit Notifier API lives!');
+  res.send('The Reddit Newsletter API lives!');
 })
 
 function attachRouters () {
