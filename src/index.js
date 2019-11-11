@@ -23,6 +23,8 @@ attachErrorHandlers();
 attachHttpServer();
 attachRouters();
 
+startEmailScheduler();
+
 app.get('/', function (req, res) {
   res.send('The Reddit Notifier API lives!');
 })
@@ -94,4 +96,19 @@ function shutdown () {
 
     process.exit(1);
   })
+}
+
+function startEmailScheduler() {
+  const { scheduleEmail } = require('./services/email');
+
+  const callback = async () => {
+    const { getAll, sendNewsletter } = require('./services/user');
+  
+    const users = await getAll();
+    for (const user of users) {
+      await sendNewsletter(user.login);
+    };
+  }
+
+  scheduleEmail(callback);
 }
