@@ -1,6 +1,5 @@
 node_modules
-swagger.json
-.vscode
+build
 *.log
 
 /.cache
