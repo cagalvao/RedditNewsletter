@@ -1,0 +1,8 @@
+node_modules
+swagger.json
+.vscode
+*.log
+
+/.cache
+/.config
+/.yarn

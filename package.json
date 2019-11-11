@@ -1,0 +1,29 @@
+{
+  "name": "reddit-newsletter-api",
+  "version": "1.0.0",
+  "description": "This API sends daily e-mails containing the top 3 most voted posts for each user's favorite Reddit channel",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js"
+  },
+  "author": "Cássio Galvão <cassio.galvao@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagalvao/RedditNewsletter.git"
+  },
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/cagalvao/RedditNewsletter#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^3.18.0"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "async": "^2.2.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^5.7.9",
+    "snoowrap": "^1.20.0"
+  }
+}
