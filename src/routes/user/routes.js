@@ -70,9 +70,13 @@ export async function notify(req, res) {
 
 export async function remove(req, res) {
   try {
-    const { login } = req.body;
+    const { login } = req.params;
+    const user = await userService.getUser(login);
+    if (!user) {
+      return res.sendStatus(404);
+    }
 
-    await userService.remove(login);
+    await userService.remove(user);
     return res.sendStatus(200);
   } catch (err) {
     res.status(500);

@@ -89,8 +89,8 @@ export async function notify(login, notify) {
   return user;
 }
 
-export async function remove(login) {
-  await User.deleteOne({ login });
+export async function remove(user) {
+  await User.findByIdAndRemove(user.id).exec();
 }
 
 export async function addChannel(login, channel) {
