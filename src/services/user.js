@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 mongoose.connect(
-  'mongodb+srv://cgalvao:l8ULfAsmkN2K191H@cluster0-wcj5a.mongodb.net/redditNotifier?retryWrites=true&w=majority',
+  process.env.MONGODBCONNSTR,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     console.log(err ? 'Error connecting to MongoDB: ' + err : 'Successfully connected to MongoDB');
@@ -134,7 +134,7 @@ export async function sendNewsletter(login) {
   if (user.notify) {
     const newsletter = await getNewsletter(login);
 
-    const { buildHTML } = require('../utils/email');
+    const { buildHTML } = require('../utils/emailBuilder');
 
     const html = buildHTML(user, newsletter);
 
